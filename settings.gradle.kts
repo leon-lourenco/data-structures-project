@@ -13,4 +13,5 @@ include(
     "graphs:union-find",
     "graphs:minimum-spanning-tree",
     "linear:queue-deque",
+    "linear:skip-list",
 )
