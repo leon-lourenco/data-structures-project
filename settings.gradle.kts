@@ -5,4 +5,5 @@ include(
     "linear:dynamic-array",
     "hashing:hash-table",
     "trees:binary-search-tree",
+    "linear:linked-list",
 )

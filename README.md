@@ -37,7 +37,7 @@ three things instead of one:
 | # | Structure | Category | Applied scenario | Status |
 |---|-----------|----------|-------------------|--------|
 | 1 | [Dynamic Array](linear/dynamic-array) | Linear | Insurance batch-ingestion record buffer (insurer) | ✅ |
-| 2 | Linked List | Linear | Insurance claim workflow stage chain (insurer) — mid-pipeline insertion without shifting | ⬜ |
+| 2 | [Linked List](linear/linked-list) | Linear | Insurance claim workflow stage chain (insurer) — mid-pipeline insertion without shifting | ✅ |
 | 3 | Stack | Linear | Legacy COBOL copybook bracket/nesting validator (legacy bank modernization) | ⬜ |
 | 4 | Queue / Deque | Linear | Support ticket FIFO triage with VIP fast-track (telecom) | ⬜ |
 | 5 | Skip List | Linear | Concurrent-friendly ordered index for a rate-limiter window, contrasted with balanced-tree rebalancing contention | ⬜ |
@@ -66,7 +66,8 @@ flowchart LR
     Root --> Hashing["hashing/"]
     Root --> Graphs["graphs/"]
     Linear --> DynamicArray["dynamic-array ✅"]
-    Linear --> LinearRest["linked-list, stack,\nqueue-deque, skip-list 🔜"]
+    Linear --> LinkedList["linked-list ✅"]
+    Linear --> LinearRest["stack, queue-deque,\nskip-list 🔜"]
     Trees --> BST["binary-search-tree ✅"]
     Trees --> TreesRest["avl-tree, heap,\ntrie, b-tree 🔜"]
     Hashing --> HashTable["hash-table ✅"]
