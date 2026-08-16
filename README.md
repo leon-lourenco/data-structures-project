@@ -46,7 +46,7 @@ three things instead of one:
 | 8 | Heap / Priority Queue | Trees | SLA-priority ticket escalation queue (telecom) | ⬜ |
 | 9 | Trie | Trees | BACEN PIX-key prefix autocomplete/validation (CPF/email/phone/random key) | ⬜ |
 | 10 | B-Tree | Trees | Simulating an RDBMS index structure for a legacy bank's mainframe modernization narrative | ⬜ |
-| 11 | Hash Table | Hashing | PIX idempotency-key dedup cache | ⬜ |
+| 11 | [Hash Table](hashing/hash-table) | Hashing | PIX idempotency-key dedup cache | ✅ |
 | 12 | Bloom Filter | Hashing | Fraud/blocklist pre-check before a real DB round trip (insurer/fraud platform) | ⬜ |
 | 13 | Graph (BFS/DFS) | Graphs | AML account-relationship network traversal (fraud/compliance team) | ⬜ |
 | 14 | Dijkstra | Graphs | Cheapest interbank settlement routing across rails (PIX/TED/Boleto) by fee weight | ⬜ |
@@ -68,7 +68,8 @@ flowchart LR
     Linear --> DynamicArray["dynamic-array ✅"]
     Linear --> LinearRest["linked-list, stack,\nqueue-deque, skip-list 🔜"]
     Trees --> TreesMods["binary-search-tree, avl-tree,\nheap, trie, b-tree"]
-    Hashing --> HashingMods["hash-table, bloom-filter"]
+    Hashing --> HashTable["hash-table ✅"]
+    Hashing --> HashingRest["bloom-filter 🔜"]
     Graphs --> GraphsMods["graph-bfs-dfs, dijkstra,\nunion-find, mst"]
 ```
 
