@@ -8,4 +8,5 @@ include(
     "linear:linked-list",
     "linear:stack",
     "trees:b-tree",
+    "graphs:graph-bfs-dfs",
 )

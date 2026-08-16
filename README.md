@@ -48,7 +48,7 @@ three things instead of one:
 | 10 | [B-Tree](trees/b-tree) | Trees | Simulating an RDBMS index structure for a legacy bank's mainframe modernization narrative | ✅ |
 | 11 | [Hash Table](hashing/hash-table) | Hashing | PIX idempotency-key dedup cache | ✅ |
 | 12 | Bloom Filter | Hashing | Fraud/blocklist pre-check before a real DB round trip (insurer/fraud platform) | ⬜ |
-| 13 | Graph (BFS/DFS) | Graphs | AML account-relationship network traversal (fraud/compliance team) | ⬜ |
+| 13 | [Graph (BFS/DFS)](graphs/graph-bfs-dfs) | Graphs | AML account-relationship network traversal (fraud/compliance team) | ✅ |
 | 14 | Dijkstra | Graphs | Cheapest interbank settlement routing across rails (PIX/TED/Boleto) by fee weight | ⬜ |
 | 15 | Union-Find | Graphs | Fraud-ring cluster detection via incrementally unioned accounts/devices (fraud platform) | ⬜ |
 | 16 | Minimum Spanning Tree | Graphs | Cell-tower backhaul buildout cost minimization (telecom) | ⬜ |
@@ -74,6 +74,8 @@ flowchart LR
     Trees --> TreesRest["avl-tree, heap,\ntrie 🔜"]
     Hashing --> HashTable["hash-table ✅"]
     Hashing --> HashingRest["bloom-filter 🔜"]
+    Graphs --> GraphBfsDfs["graph-bfs-dfs ✅"]
+    Graphs --> GraphsRest["dijkstra, union-find,\nmst 🔜"]
     Graphs --> GraphsMods["graph-bfs-dfs, dijkstra,\nunion-find, mst"]
 ```
 
