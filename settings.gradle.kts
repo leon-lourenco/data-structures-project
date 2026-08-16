@@ -16,4 +16,5 @@ include(
     "linear:skip-list",
     "hashing:bloom-filter",
     "trees:avl-tree",
+    "trees:heap",
 )
