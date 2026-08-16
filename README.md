@@ -41,7 +41,7 @@ three things instead of one:
 | 3 | Stack | Linear | Legacy COBOL copybook bracket/nesting validator (legacy bank modernization) | ⬜ |
 | 4 | Queue / Deque | Linear | Support ticket FIFO triage with VIP fast-track (telecom) | ⬜ |
 | 5 | Skip List | Linear | Concurrent-friendly ordered index for a rate-limiter window, contrasted with balanced-tree rebalancing contention | ⬜ |
-| 6 | Binary Search Tree | Trees | BACEN PIX transaction-limit tier lookup (ordered floor query) | ⬜ |
+| 6 | [Binary Search Tree](trees/binary-search-tree) | Trees | BACEN PIX transaction-limit tier lookup (ordered floor query) | ✅ |
 | 7 | AVL Tree | Trees | Guaranteed O(log n) fraud-rule ordered index (fraud platform), contrasted against the BST's degenerate case | ⬜ |
 | 8 | Heap / Priority Queue | Trees | SLA-priority ticket escalation queue (telecom) | ⬜ |
 | 9 | Trie | Trees | BACEN PIX-key prefix autocomplete/validation (CPF/email/phone/random key) | ⬜ |
@@ -67,7 +67,8 @@ flowchart LR
     Root --> Graphs["graphs/"]
     Linear --> DynamicArray["dynamic-array ✅"]
     Linear --> LinearRest["linked-list, stack,\nqueue-deque, skip-list 🔜"]
-    Trees --> TreesMods["binary-search-tree, avl-tree,\nheap, trie, b-tree"]
+    Trees --> BST["binary-search-tree ✅"]
+    Trees --> TreesRest["avl-tree, heap,\ntrie, b-tree 🔜"]
     Hashing --> HashTable["hash-table ✅"]
     Hashing --> HashingRest["bloom-filter 🔜"]
     Graphs --> GraphsMods["graph-bfs-dfs, dijkstra,\nunion-find, mst"]
