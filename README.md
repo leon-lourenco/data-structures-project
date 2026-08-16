@@ -39,7 +39,7 @@ three things instead of one:
 | 1 | [Dynamic Array](linear/dynamic-array) | Linear | Insurance batch-ingestion record buffer (insurer) | ✅ |
 | 2 | [Linked List](linear/linked-list) | Linear | Insurance claim workflow stage chain (insurer) — mid-pipeline insertion without shifting | ✅ |
 | 3 | [Stack](linear/stack) | Linear | Legacy COBOL copybook bracket/nesting validator (legacy bank modernization) | ✅ |
-| 4 | Queue / Deque | Linear | Support ticket FIFO triage with VIP fast-track (telecom) | ⬜ |
+| 4 | [Queue / Deque](linear/queue-deque) | Linear | Support ticket FIFO triage with VIP fast-track (telecom) | ✅ |
 | 5 | Skip List | Linear | Concurrent-friendly ordered index for a rate-limiter window, contrasted with balanced-tree rebalancing contention | ⬜ |
 | 6 | [Binary Search Tree](trees/binary-search-tree) | Trees | BACEN PIX transaction-limit tier lookup (ordered floor query) | ✅ |
 | 7 | AVL Tree | Trees | Guaranteed O(log n) fraud-rule ordered index (fraud platform), contrasted against the BST's degenerate case | ⬜ |
@@ -68,7 +68,8 @@ flowchart LR
     Linear --> DynamicArray["dynamic-array ✅"]
     Linear --> LinkedList["linked-list ✅"]
     Linear --> StackMod["stack ✅"]
-    Linear --> LinearRest["queue-deque,\nskip-list 🔜"]
+    Linear --> QueueDeque["queue-deque ✅"]
+    Linear --> LinearRest["skip-list 🔜"]
     Trees --> BST["binary-search-tree ✅"]
     Trees --> BTree["b-tree ✅"]
     Trees --> TreesRest["avl-tree, heap,\ntrie 🔜"]

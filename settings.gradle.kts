@@ -12,4 +12,5 @@ include(
     "graphs:dijkstra",
     "graphs:union-find",
     "graphs:minimum-spanning-tree",
+    "linear:queue-deque",
 )
