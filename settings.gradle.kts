@@ -14,4 +14,5 @@ include(
     "graphs:minimum-spanning-tree",
     "linear:queue-deque",
     "linear:skip-list",
+    "hashing:bloom-filter",
 )

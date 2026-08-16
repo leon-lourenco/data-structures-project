@@ -47,7 +47,7 @@ three things instead of one:
 | 9 | Trie | Trees | BACEN PIX-key prefix autocomplete/validation (CPF/email/phone/random key) | ⬜ |
 | 10 | [B-Tree](trees/b-tree) | Trees | Simulating an RDBMS index structure for a legacy bank's mainframe modernization narrative | ✅ |
 | 11 | [Hash Table](hashing/hash-table) | Hashing | PIX idempotency-key dedup cache | ✅ |
-| 12 | Bloom Filter | Hashing | Fraud/blocklist pre-check before a real DB round trip (insurer/fraud platform) | ⬜ |
+| 12 | [Bloom Filter](hashing/bloom-filter) | Hashing | Fraud/blocklist pre-check before a real DB round trip (insurer/fraud platform) | ✅ |
 | 13 | [Graph (BFS/DFS)](graphs/graph-bfs-dfs) | Graphs | AML account-relationship network traversal (fraud/compliance team) | ✅ |
 | 14 | [Dijkstra](graphs/dijkstra) | Graphs | Cheapest interbank settlement routing across rails (PIX/TED/Boleto) by fee weight | ✅ |
 | 15 | [Union-Find](graphs/union-find) | Graphs | Fraud-ring cluster detection via incrementally unioned accounts/devices (fraud platform) | ✅ |
@@ -74,7 +74,7 @@ flowchart LR
     Trees --> BTree["b-tree ✅"]
     Trees --> TreesRest["avl-tree, heap,\ntrie 🔜"]
     Hashing --> HashTable["hash-table ✅"]
-    Hashing --> HashingRest["bloom-filter 🔜"]
+    Hashing --> BloomFilter["bloom-filter ✅"]
     Graphs --> GraphBfsDfs["graph-bfs-dfs ✅"]
     Graphs --> Dijkstra["dijkstra ✅"]
     Graphs --> UnionFind["union-find ✅"]
