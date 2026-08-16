@@ -51,7 +51,7 @@ three things instead of one:
 | 13 | [Graph (BFS/DFS)](graphs/graph-bfs-dfs) | Graphs | AML account-relationship network traversal (fraud/compliance team) | ✅ |
 | 14 | [Dijkstra](graphs/dijkstra) | Graphs | Cheapest interbank settlement routing across rails (PIX/TED/Boleto) by fee weight | ✅ |
 | 15 | [Union-Find](graphs/union-find) | Graphs | Fraud-ring cluster detection via incrementally unioned accounts/devices (fraud platform) | ✅ |
-| 16 | Minimum Spanning Tree | Graphs | Cell-tower backhaul buildout cost minimization (telecom) | ⬜ |
+| 16 | [Minimum Spanning Tree](graphs/minimum-spanning-tree) | Graphs | Cell-tower backhaul buildout cost minimization (telecom) | ✅ |
 
 Modules are added incrementally, one per commit, as each structure is implemented — every
 module lands with its own classic/applied/benchmark implementation, README, and 100% JaCoCo
@@ -77,7 +77,7 @@ flowchart LR
     Graphs --> GraphBfsDfs["graph-bfs-dfs ✅"]
     Graphs --> Dijkstra["dijkstra ✅"]
     Graphs --> UnionFind["union-find ✅"]
-    Graphs --> GraphsRest["mst 🔜"]
+    Graphs --> Mst["minimum-spanning-tree ✅"]
     Graphs --> GraphsMods["graph-bfs-dfs, dijkstra,\nunion-find, mst"]
 ```
 

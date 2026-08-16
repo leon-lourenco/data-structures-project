@@ -11,4 +11,5 @@ include(
     "graphs:graph-bfs-dfs",
     "graphs:dijkstra",
     "graphs:union-find",
+    "graphs:minimum-spanning-tree",
 )
