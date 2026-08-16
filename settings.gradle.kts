@@ -15,4 +15,5 @@ include(
     "linear:queue-deque",
     "linear:skip-list",
     "hashing:bloom-filter",
+    "trees:avl-tree",
 )

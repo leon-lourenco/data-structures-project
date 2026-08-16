@@ -42,7 +42,7 @@ three things instead of one:
 | 4 | [Queue / Deque](linear/queue-deque) | Linear | Support ticket FIFO triage with VIP fast-track (telecom) | ✅ |
 | 5 | [Skip List](linear/skip-list) | Linear | Concurrent-friendly ordered index for a rate-limiter window, contrasted with balanced-tree rebalancing contention | ✅ |
 | 6 | [Binary Search Tree](trees/binary-search-tree) | Trees | BACEN PIX transaction-limit tier lookup (ordered floor query) | ✅ |
-| 7 | AVL Tree | Trees | Guaranteed O(log n) fraud-rule ordered index (fraud platform), contrasted against the BST's degenerate case | ⬜ |
+| 7 | [AVL Tree](trees/avl-tree) | Trees | Guaranteed O(log n) fraud-rule ordered index (fraud platform), contrasted against the BST's degenerate case | ✅ |
 | 8 | Heap / Priority Queue | Trees | SLA-priority ticket escalation queue (telecom) | ⬜ |
 | 9 | Trie | Trees | BACEN PIX-key prefix autocomplete/validation (CPF/email/phone/random key) | ⬜ |
 | 10 | [B-Tree](trees/b-tree) | Trees | Simulating an RDBMS index structure for a legacy bank's mainframe modernization narrative | ✅ |
@@ -72,7 +72,8 @@ flowchart LR
     Linear --> SkipList["skip-list ✅"]
     Trees --> BST["binary-search-tree ✅"]
     Trees --> BTree["b-tree ✅"]
-    Trees --> TreesRest["avl-tree, heap,\ntrie 🔜"]
+    Trees --> AvlTree["avl-tree ✅"]
+    Trees --> TreesRest["heap, trie 🔜"]
     Hashing --> HashTable["hash-table ✅"]
     Hashing --> BloomFilter["bloom-filter ✅"]
     Graphs --> GraphBfsDfs["graph-bfs-dfs ✅"]
