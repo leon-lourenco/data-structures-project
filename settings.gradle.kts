@@ -17,4 +17,5 @@ include(
     "hashing:bloom-filter",
     "trees:avl-tree",
     "trees:heap",
+    "trees:trie",
 )

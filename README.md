@@ -44,7 +44,7 @@ three things instead of one:
 | 6 | [Binary Search Tree](trees/binary-search-tree) | Trees | BACEN PIX transaction-limit tier lookup (ordered floor query) | ✅ |
 | 7 | [AVL Tree](trees/avl-tree) | Trees | Guaranteed O(log n) fraud-rule ordered index (fraud platform), contrasted against the BST's degenerate case | ✅ |
 | 8 | [Heap / Priority Queue](trees/heap) | Trees | SLA-priority ticket escalation queue (telecom) | ✅ |
-| 9 | Trie | Trees | BACEN PIX-key prefix autocomplete/validation (CPF/email/phone/random key) | ⬜ |
+| 9 | [Trie](trees/trie) | Trees | BACEN PIX-key prefix autocomplete/validation (CPF/email/phone/random key) | ✅ |
 | 10 | [B-Tree](trees/b-tree) | Trees | Simulating an RDBMS index structure for a legacy bank's mainframe modernization narrative | ✅ |
 | 11 | [Hash Table](hashing/hash-table) | Hashing | PIX idempotency-key dedup cache | ✅ |
 | 12 | [Bloom Filter](hashing/bloom-filter) | Hashing | Fraud/blocklist pre-check before a real DB round trip (insurer/fraud platform) | ✅ |
@@ -53,9 +53,10 @@ three things instead of one:
 | 15 | [Union-Find](graphs/union-find) | Graphs | Fraud-ring cluster detection via incrementally unioned accounts/devices (fraud platform) | ✅ |
 | 16 | [Minimum Spanning Tree](graphs/minimum-spanning-tree) | Graphs | Cell-tower backhaul buildout cost minimization (telecom) | ✅ |
 
-Modules are added incrementally, one per commit, as each structure is implemented — every
-module lands with its own classic/applied/benchmark implementation, README, and 100% JaCoCo
-instruction + branch coverage before its row here flips to ✅.
+All 16 structures are implemented — each one landed with its own classic/applied/benchmark
+implementation, README, and genuine 100% JaCoCo instruction + branch coverage (not padded to
+hit the number: several modules found and either fixed a real gap or simplified away a
+provably-unreachable defensive branch instead) before its row above flipped to ✅.
 
 ## Structure
 
@@ -74,7 +75,7 @@ flowchart LR
     Trees --> BTree["b-tree ✅"]
     Trees --> AvlTree["avl-tree ✅"]
     Trees --> HeapMod["heap ✅"]
-    Trees --> TreesRest["trie 🔜"]
+    Trees --> TrieMod["trie ✅"]
     Hashing --> HashTable["hash-table ✅"]
     Hashing --> BloomFilter["bloom-filter ✅"]
     Graphs --> GraphBfsDfs["graph-bfs-dfs ✅"]
