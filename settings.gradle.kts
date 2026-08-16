@@ -9,4 +9,5 @@ include(
     "linear:stack",
     "trees:b-tree",
     "graphs:graph-bfs-dfs",
+    "graphs:dijkstra",
 )
