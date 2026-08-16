@@ -7,4 +7,5 @@ include(
     "trees:binary-search-tree",
     "linear:linked-list",
     "linear:stack",
+    "trees:b-tree",
 )

@@ -45,7 +45,7 @@ three things instead of one:
 | 7 | AVL Tree | Trees | Guaranteed O(log n) fraud-rule ordered index (fraud platform), contrasted against the BST's degenerate case | ⬜ |
 | 8 | Heap / Priority Queue | Trees | SLA-priority ticket escalation queue (telecom) | ⬜ |
 | 9 | Trie | Trees | BACEN PIX-key prefix autocomplete/validation (CPF/email/phone/random key) | ⬜ |
-| 10 | B-Tree | Trees | Simulating an RDBMS index structure for a legacy bank's mainframe modernization narrative | ⬜ |
+| 10 | [B-Tree](trees/b-tree) | Trees | Simulating an RDBMS index structure for a legacy bank's mainframe modernization narrative | ✅ |
 | 11 | [Hash Table](hashing/hash-table) | Hashing | PIX idempotency-key dedup cache | ✅ |
 | 12 | Bloom Filter | Hashing | Fraud/blocklist pre-check before a real DB round trip (insurer/fraud platform) | ⬜ |
 | 13 | Graph (BFS/DFS) | Graphs | AML account-relationship network traversal (fraud/compliance team) | ⬜ |
@@ -70,7 +70,8 @@ flowchart LR
     Linear --> StackMod["stack ✅"]
     Linear --> LinearRest["queue-deque,\nskip-list 🔜"]
     Trees --> BST["binary-search-tree ✅"]
-    Trees --> TreesRest["avl-tree, heap,\ntrie, b-tree 🔜"]
+    Trees --> BTree["b-tree ✅"]
+    Trees --> TreesRest["avl-tree, heap,\ntrie 🔜"]
     Hashing --> HashTable["hash-table ✅"]
     Hashing --> HashingRest["bloom-filter 🔜"]
     Graphs --> GraphsMods["graph-bfs-dfs, dijkstra,\nunion-find, mst"]
