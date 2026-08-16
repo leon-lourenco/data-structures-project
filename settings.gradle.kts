@@ -10,4 +10,5 @@ include(
     "trees:b-tree",
     "graphs:graph-bfs-dfs",
     "graphs:dijkstra",
+    "graphs:union-find",
 )

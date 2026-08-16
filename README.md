@@ -50,7 +50,7 @@ three things instead of one:
 | 12 | Bloom Filter | Hashing | Fraud/blocklist pre-check before a real DB round trip (insurer/fraud platform) | ⬜ |
 | 13 | [Graph (BFS/DFS)](graphs/graph-bfs-dfs) | Graphs | AML account-relationship network traversal (fraud/compliance team) | ✅ |
 | 14 | [Dijkstra](graphs/dijkstra) | Graphs | Cheapest interbank settlement routing across rails (PIX/TED/Boleto) by fee weight | ✅ |
-| 15 | Union-Find | Graphs | Fraud-ring cluster detection via incrementally unioned accounts/devices (fraud platform) | ⬜ |
+| 15 | [Union-Find](graphs/union-find) | Graphs | Fraud-ring cluster detection via incrementally unioned accounts/devices (fraud platform) | ✅ |
 | 16 | Minimum Spanning Tree | Graphs | Cell-tower backhaul buildout cost minimization (telecom) | ⬜ |
 
 Modules are added incrementally, one per commit, as each structure is implemented — every
@@ -76,7 +76,8 @@ flowchart LR
     Hashing --> HashingRest["bloom-filter 🔜"]
     Graphs --> GraphBfsDfs["graph-bfs-dfs ✅"]
     Graphs --> Dijkstra["dijkstra ✅"]
-    Graphs --> GraphsRest["union-find, mst 🔜"]
+    Graphs --> UnionFind["union-find ✅"]
+    Graphs --> GraphsRest["mst 🔜"]
     Graphs --> GraphsMods["graph-bfs-dfs, dijkstra,\nunion-find, mst"]
 ```
 
