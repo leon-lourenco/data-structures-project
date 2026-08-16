@@ -36,7 +36,7 @@ three things instead of one:
 
 | # | Structure | Category | Applied scenario | Status |
 |---|-----------|----------|-------------------|--------|
-| 1 | Dynamic Array | Linear | Insurance batch-ingestion record buffer (insurer) | ⬜ |
+| 1 | [Dynamic Array](linear/dynamic-array) | Linear | Insurance batch-ingestion record buffer (insurer) | ✅ |
 | 2 | Linked List | Linear | Insurance claim workflow stage chain (insurer) — mid-pipeline insertion without shifting | ⬜ |
 | 3 | Stack | Linear | Legacy COBOL copybook bracket/nesting validator (legacy bank modernization) | ⬜ |
 | 4 | Queue / Deque | Linear | Support ticket FIFO triage with VIP fast-track (telecom) | ⬜ |
@@ -65,7 +65,8 @@ flowchart LR
     Root --> Trees["trees/"]
     Root --> Hashing["hashing/"]
     Root --> Graphs["graphs/"]
-    Linear --> LinearMods["dynamic-array, linked-list, stack,\nqueue-deque, skip-list"]
+    Linear --> DynamicArray["dynamic-array ✅"]
+    Linear --> LinearRest["linked-list, stack,\nqueue-deque, skip-list 🔜"]
     Trees --> TreesMods["binary-search-tree, avl-tree,\nheap, trie, b-tree"]
     Hashing --> HashingMods["hash-table, bloom-filter"]
     Graphs --> GraphsMods["graph-bfs-dfs, dijkstra,\nunion-find, mst"]
