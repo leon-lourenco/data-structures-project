@@ -35,12 +35,12 @@ jobs:
     with:
       java-version: '26'
 
-  # Publishes every module's coverage report to GitHub Pages - only on an actual push to
-  # master, never on a pull request (a PR from a fork couldn't deploy anyway, and there's no
-  # reason to redeploy Pages for a branch that isn't master yet).
+  # Publishes every module's coverage report to GitHub Pages whenever master itself is what
+  # ran (a real push, or a manual re-run) - never on a pull request, since a PR's ref isn't
+  # refs/heads/master and a PR from a fork couldn't deploy anyway.
   pages:
     needs: build-test
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/master'
     uses: leon-lourenco/ci-templates/.github/workflows/pages-jacoco.yml@master
     with:
       java-version: '26'
