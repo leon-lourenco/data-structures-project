@@ -1,6 +1,6 @@
 [versions]
 junit = "5.11.4"
-assertj = "3.27.3"
+assertj = "3.27.7"
 jacoco = "0.8.15"
 jmh = "1.37"
 
