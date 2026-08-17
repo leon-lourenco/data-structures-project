@@ -48,6 +48,32 @@ three things instead of one:
   about, usually as a direct A/B: O(1) vs O(n), average case vs. worst case, balanced vs.
   degenerate. The numbers quoted in each README are copied from a real local run, not estimated.
 
+## Why Java?
+
+Every module here is written in Java on purpose, not by default — it's the language this
+project's author ships in production daily, so writing these structures without a `java.util`
+shortcut is also a fluency demonstration, not just a data-structures one. That constraint is
+part of why Java specifically fits: the language *ships* `HashMap`, `PriorityQueue`,
+`ArrayDeque`, and `ConcurrentSkipListMap` as one-line imports, so deliberately writing around
+them is a real exercise. A language without that temptation built in — C, say — wouldn't pose
+the same choice, and reimplementing a hash table in C mostly exercises manual memory management
+(malloc/free, buffer sizing) instead of the actual point: chaining, load factor, resize timing.
+
+The other reason is tooling maturity. Every benchmark number in this repo is measured, not
+estimated: JMH runs each benchmark through warmup iterations so the JIT has actually compiled
+the hot path before anything gets timed, forks a fresh JVM per benchmark to avoid
+cross-contamination, and uses blackholes to stop the JIT from optimizing away the very code
+being measured. JaCoCo brings the same rigor to coverage — 100% here means every instruction and
+branch genuinely ran under test. Building that level of methodological rigor from scratch in C
+is its own separate project; on the JVM it's `./gradlew jmh`.
+
+The honest tradeoff: JVM numbers include the JVM. JIT warm-up, garbage collection, and object
+header overhead are folded into every nanosecond quoted in this repo — a C implementation of the
+same structures would show a closer-to-the-metal view of cache locality and memory layout
+instead. This repo doesn't pretend that layer is invisible; it leans on JMH's methodology
+specifically to see the algorithmic shape (O(1) vs. O(log n) vs. O(n)) *through* the JVM rather
+than around it.
+
 ## The 16 structures
 
 All complete: classic/applied/benchmark implementation, its own README, and genuine 100%

@@ -50,6 +50,35 @@ real. Por isso cada módulo carrega três coisas em vez de uma:
   balanceado vs degenerado. Os números citados em cada README são copiados de uma execução
   local real, não estimados.
 
+## Por que Java?
+
+Todo módulo aqui é escrito em Java de propósito, não por padrão — é a linguagem que o autor
+deste projeto usa em produção no dia a dia, então escrever essas estruturas sem atalho do
+`java.util` é também uma demonstração de fluência na linguagem, não só de estruturas de dados.
+Essa restrição é parte do motivo de o Java se encaixar especificamente bem aqui: a linguagem
+*já vem* com `HashMap`, `PriorityQueue`, `ArrayDeque` e `ConcurrentSkipListMap` como imports de
+uma linha só, então escrever deliberadamente contornando eles é um exercício real. Uma linguagem
+sem essa tentação embutida — C, por exemplo — não colocaria a mesma escolha na mesa, e
+reimplementar uma hash table em C acaba exercitando principalmente gerenciamento manual de
+memória (malloc/free, dimensionamento de buffer) em vez do ponto real: encadeamento, fator de
+carga, o momento de redimensionar.
+
+O outro motivo é a maturidade do ferramental. Todo número de benchmark neste repositório é
+medido, não estimado: o JMH roda cada benchmark através de iterações de warmup para que o JIT já
+tenha compilado o caminho quente antes de qualquer coisa ser cronometrada, cria uma JVM nova (via
+fork) por benchmark para evitar contaminação cruzada, e usa blackholes para impedir que o JIT
+otimize embora justamente o código que está sendo medido. O JaCoCo traz o mesmo rigor para a
+cobertura — 100% aqui significa que toda instrução e todo branch genuinamente rodaram sob teste.
+Construir esse nível de rigor metodológico do zero em C é um projeto separado por si só; na JVM,
+é `./gradlew jmh`.
+
+O trade-off honesto: números de JVM incluem a JVM. O warmup do JIT, o garbage collection e o
+overhead de cabeçalho de objeto estão embutidos em cada nanossegundo citado neste repositório —
+uma implementação em C das mesmas estruturas mostraria, em vez disso, uma visão mais próxima do
+metal sobre localidade de cache e layout de memória. Este repositório não finge que essa camada é
+invisível; ele se apoia na metodologia do JMH especificamente para enxergar o formato algorítmico
+(O(1) vs. O(log n) vs. O(n)) *através* da JVM, e não ao redor dela.
+
 ## As 16 estruturas
 
 Todas completas: implementação classic/applied/benchmark, README próprio, e cobertura genuína
