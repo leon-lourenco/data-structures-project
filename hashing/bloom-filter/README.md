@@ -54,7 +54,7 @@ asserts the never-false-negative guarantee directly (every added item always rep
 generously-sized filter where a spurious collision is negligible — a deterministic assertion
 about a probabilistic structure, not a flaky one.
 
-## Applied example: insurer/fraud platform fraud blocklist pre-check
+## Applied example: fraud blocklist pre-check
 
 [`applied/FraudBlocklistPreCheck`](src/main/java/com/datastructures/hashing/bloomfilter/applied/FraudBlocklistPreCheck.java)
 wraps a `BloomFilter<String>` of known-fraudulent CPFs/account IDs. `mightBeBlocked(id)` does the

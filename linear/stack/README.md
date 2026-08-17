@@ -44,7 +44,7 @@ LIFO ordering, both empty-stack failure cases, and growth past the initial capac
 
 [`applied/CopybookBracketValidator`](src/main/java/com/datastructures/linear/stack/applied/CopybookBracketValidator.java)
 is the textbook "balanced brackets" stack exercise pointed at a real problem: tooling built
-during a mainframe-to-microservices modernization (at a legacy bank) needs to validate that parentheses in
+during a legacy bank's mainframe-to-microservices modernization needs to validate that parentheses in
 `PICTURE` clauses and `COMPUTE` expressions are balanced *before* an automated parser attempts
 to translate the line — a malformed copybook line should fail loudly here, not produce a
 silently wrong translation downstream. Every opening bracket is pushed; every closing bracket

@@ -41,7 +41,7 @@ node is simultaneously head and tail).
 ## Applied example: insurance claim workflow stages
 
 [`applied/ClaimWorkflow`](src/main/java/com/datastructures/linear/linkedlist/applied/ClaimWorkflow.java)
-models an insurance claim's processing pipeline (insurer) as a chain of
+models an insurance claim's processing pipeline (at a large insurer) as a chain of
 [`ClaimStage`](src/main/java/com/datastructures/linear/linkedlist/applied/ClaimStage.java)
 nodes: intake, document verification, assessment, payout. A high-value claim might need an
 extra "manual review" stage inserted right after document verification — with an array-backed

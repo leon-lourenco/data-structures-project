@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
- * An insurance claim's processing pipeline (insurer): a fixed default sequence of stages
+ * An insurance claim's processing pipeline (at a large insurer): a fixed default sequence of stages
  * (intake, document verification, assessment, payout) that individual claims can have *extra*
  * stages spliced into mid-pipeline — a high-value claim might need a "manual review" stage
  * inserted right after document verification, without touching intake or assessment.

@@ -56,7 +56,7 @@ forces splits at multiple levels with both ascending and descending 200-key inse
 a deliberately constructed sequence that reinserts a key at the exact moment it's the median of a
 node that's about to be preemptively split — the single trickiest branch in the whole class.
 
-## Applied example: a legacy bank account index simulation
+## Applied example: legacy bank account index simulation
 
 [`applied/AccountIndexSimulation`](src/main/java/com/datastructures/trees/btree/applied/AccountIndexSimulation.java)
 indexes account records by account number the way a real RDBMS index would during a

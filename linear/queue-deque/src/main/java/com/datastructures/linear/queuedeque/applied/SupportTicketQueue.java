@@ -3,7 +3,7 @@ package com.datastructures.linear.queuedeque.applied;
 import com.datastructures.linear.queuedeque.classic.ArrayDeque;
 
 /**
- * telecom customer support ticket triage queue: a normal ticket joins the back of the line
+ * A telecom customer support ticket triage queue: a normal ticket joins the back of the line
  * ({@link #submit}, {@code addLast} — FIFO), but a VIP ticket jumps straight to the front
  * ({@link #submitVip}, {@code addFirst}), so the next agent pull ({@link #nextTicket},
  * {@code removeFirst}) always serves whichever VIP is waiting before any normal ticket that

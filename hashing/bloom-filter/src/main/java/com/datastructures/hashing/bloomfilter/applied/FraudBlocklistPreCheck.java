@@ -3,7 +3,7 @@ package com.datastructures.hashing.bloomfilter.applied;
 import com.datastructures.hashing.bloomfilter.classic.BloomFilter;
 
 /**
- * A fraud/account-blocklist pre-check (insurer/fraud platform): wraps a {@link BloomFilter} of known
+ * A fraud/account-blocklist pre-check: wraps a {@link BloomFilter} of known
  * fraudulent CPFs/account IDs so a caller can skip a real database/service round trip for the
  * common case of a clean ID, without ever risking a wrongly-skipped check on a genuinely blocked
  * one.

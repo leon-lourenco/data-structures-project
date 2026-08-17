@@ -50,7 +50,7 @@ hand-traces a dedicated insertion sequence for each of the four rotation cases, 
 module's real point — inserts the exact same 100-key sorted sequence that degenerates the
 plain `BinarySearchTree`'s height to 100, and asserts the AVL tree's height stays at **7**.
 
-## Applied example: a fraud-detection platform fraud-rule index
+## Applied example: fraud-detection platform's rule index
 
 [`applied/FraudRuleIndex`](src/main/java/com/datastructures/trees/avltree/applied/FraudRuleIndex.java)
 indexes fraud-detection rules by the risk-score threshold each one fires at. Compliance teams

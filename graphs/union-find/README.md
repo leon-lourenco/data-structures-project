@@ -69,7 +69,7 @@ higher, equal ranks pick a root and increment it, an already-unioned pair is a n
 ## Applied example: fraud-ring cluster detection
 
 [`applied/FraudRingDetector`](src/main/java/com/datastructures/graphs/unionfind/applied/FraudRingDetector.java)
-(fraud platform) incrementally unions accounts and the identifying signals they've been observed with —
+incrementally unions accounts and the identifying signals they've been observed with —
 a device fingerprint, a phone number — as those links are discovered in real time, with no batch
 recomputation needed. Answering "are these two accounts part of the same fraud ring?" is then a
 single `connected` check, even when the two accounts never directly shared a signal and are only

@@ -3,8 +3,8 @@ package com.datastructures.trees.btree.applied;
 import com.datastructures.trees.btree.classic.BTree;
 
 /**
- * Indexes account records by account number the way a real RDBMS index would during a legacy bank's
- * mainframe-to-microservices modernization: a table with millions of accounts needs "find the
+ * Indexes account records by account number the way a real RDBMS index would during a legacy
+ * bank's mainframe-to-microservices modernization: a table with millions of accounts needs "find the
  * account with number X" to stay fast without loading every row.
  *
  * <p>A relational database doesn't index with a binary tree — it uses a B-tree (or a close

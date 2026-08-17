@@ -61,7 +61,7 @@ a graph with a cycle (so both traversals are forced to discard an already-visite
 least once) plus a disconnected component (so both traversals are checked to never wander into
 it), and covers the unknown-start-vertex failure case for both `bfs` and `dfs`.
 
-## Applied example: fraud platform/legacy bank AML network traversal
+## Applied example: AML network traversal
 
 [`applied/AmlNetworkTraversal`](src/main/java/com/datastructures/graphs/graphbfsdfs/applied/AmlNetworkTraversal.java)
 models account-to-account transaction relationships as a graph for an anti-money-laundering

@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Incremental fraud-ring clustering (fraud platform): every account and every identifying signal it's
+ * Incremental fraud-ring clustering (for a payments fraud-detection team): every account and every identifying signal it's
  * ever been observed with (a device fingerprint, a phone number, a shared IP) is a node in the
  * same union-find. Whenever two nodes are observed together — an account used from a device, or
  * two accounts sharing a phone number — they're unioned on the spot, no batch recomputation

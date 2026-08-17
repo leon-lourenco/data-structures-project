@@ -5,7 +5,7 @@ import com.datastructures.linear.stack.classic.Stack;
 /**
  * Validates that parentheses/brackets in a legacy COBOL source line (PICTURE clauses,
  * {@code COMPUTE} expressions) are balanced before an automated parser attempts to translate
- * it — part of the tooling built for a mainframe-to-microservices modernization effort (legacy bank).
+ * it — part of the tooling built for a legacy bank's mainframe-to-microservices modernization effort.
  * A malformed copybook line should fail fast here, not produce a silently wrong translation.
  *
  * <p>This is the textbook stack application (balanced brackets) applied to a real parsing

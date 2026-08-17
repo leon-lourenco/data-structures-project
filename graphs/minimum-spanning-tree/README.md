@@ -52,7 +52,7 @@ genuinely disconnected input graph.
 ## Applied example: cell tower backhaul planning
 
 [`applied/CellTowerBackhaulPlanner`](src/main/java/com/datastructures/graphs/minimumspanningtree/applied/CellTowerBackhaulPlanner.java)
-(telecom) finds the minimum-cost set of backhaul links connecting every cell tower in a
+(at a telecom operator) finds the minimum-cost set of backhaul links connecting every cell tower in a
 build-out into one network — where each candidate link's weight is its backhaul cost (fiber
 trenching distance, microwave-link equipment, lease terms — whatever dominates for that pair) —
 without evaluating every possible network topology by brute force.

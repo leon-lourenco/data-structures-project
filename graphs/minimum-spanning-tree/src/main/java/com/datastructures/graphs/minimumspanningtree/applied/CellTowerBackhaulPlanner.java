@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Minimum-cost backhaul network planning (telecom): connecting every cell tower in a build-out
+ * Minimum-cost backhaul network planning (at a telecom operator): connecting every cell tower in a build-out
  * back to the core network doesn't need every possible tower-to-tower link built — it needs the
  * cheapest set of links that connects all of them into one network. Each candidate link's weight
  * is its backhaul cost (fiber trenching distance, microwave-link equipment cost, lease terms —

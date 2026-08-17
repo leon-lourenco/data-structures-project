@@ -1,5 +1,7 @@
 # The Grand Data Structures Project
 
+**Read this in:** [English](README.md) | [Português](README.pt-BR.md) | [Español](README.es.md)
+
 A modular Java project demonstrating the classic data structures taught in a university CS
 curriculum — one Gradle module per structure, each with its own README, a from-scratch
 implementation, a second implementation applying that structure to a real scenario, and a JMH
@@ -12,6 +14,21 @@ backend engineer, built in public in scoped batches. It's a sibling to this auth
 [design-patterns-project](https://github.com/leon-lourenco/design-patterns-project) — same
 conventions, same author, a different fundamental: data structures and their complexity
 trade-offs instead of GoF patterns.
+
+## A few real numbers
+
+Every claim below is copied verbatim from an actual local JMH/JaCoCo run — see each module's
+own README for the full table and how to reproduce it.
+
+- **[Hash Table](hashing/hash-table)**, every key forced into one bucket: `get()` goes from
+  134 ns to 179,653 ns as the table grows from 100 to 100,000 entries. Uniform hashing stays
+  flat at ~3.7 ns the whole time. Same table, same code — the only variable is the quality of
+  the key's `hashCode()`.
+- **[AVL Tree](trees/avl-tree)** vs. **[Binary Search Tree](trees/binary-search-tree)**, the
+  identical 100-key sorted-insert sequence: the plain BST's height degenerates to **100**; the
+  AVL tree stays at **7**.
+- **[Union-Find](graphs/union-find)** with path compression + union by rank, vs. without, under
+  the identical worst-case input: **~3,046x** faster at 10,000 elements.
 
 ## Why classic + applied + benchmark
 
@@ -32,58 +49,32 @@ three things instead of one:
   about, usually as a direct A/B: O(1) vs O(n), average case vs. worst case, balanced vs.
   degenerate. The numbers quoted in each README are copied from a real local run, not estimated.
 
-## Status
+## The 16 structures
 
-| # | Structure | Category | Applied scenario | Status |
-|---|-----------|----------|-------------------|--------|
-| 1 | [Dynamic Array](linear/dynamic-array) | Linear | Insurance batch-ingestion record buffer (insurer) | ✅ |
-| 2 | [Linked List](linear/linked-list) | Linear | Insurance claim workflow stage chain (insurer) — mid-pipeline insertion without shifting | ✅ |
-| 3 | [Stack](linear/stack) | Linear | Legacy COBOL copybook bracket/nesting validator (legacy bank modernization) | ✅ |
-| 4 | [Queue / Deque](linear/queue-deque) | Linear | Support ticket FIFO triage with VIP fast-track (telecom) | ✅ |
-| 5 | [Skip List](linear/skip-list) | Linear | Concurrent-friendly ordered index for a rate-limiter window, contrasted with balanced-tree rebalancing contention | ✅ |
-| 6 | [Binary Search Tree](trees/binary-search-tree) | Trees | BACEN PIX transaction-limit tier lookup (ordered floor query) | ✅ |
-| 7 | [AVL Tree](trees/avl-tree) | Trees | Guaranteed O(log n) fraud-rule ordered index (fraud platform), contrasted against the BST's degenerate case | ✅ |
-| 8 | [Heap / Priority Queue](trees/heap) | Trees | SLA-priority ticket escalation queue (telecom) | ✅ |
-| 9 | [Trie](trees/trie) | Trees | BACEN PIX-key prefix autocomplete/validation (CPF/email/phone/random key) | ✅ |
-| 10 | [B-Tree](trees/b-tree) | Trees | Simulating an RDBMS index structure for a legacy bank's mainframe modernization narrative | ✅ |
-| 11 | [Hash Table](hashing/hash-table) | Hashing | PIX idempotency-key dedup cache | ✅ |
-| 12 | [Bloom Filter](hashing/bloom-filter) | Hashing | Fraud/blocklist pre-check before a real DB round trip (insurer/fraud platform) | ✅ |
-| 13 | [Graph (BFS/DFS)](graphs/graph-bfs-dfs) | Graphs | AML account-relationship network traversal (fraud/compliance team) | ✅ |
-| 14 | [Dijkstra](graphs/dijkstra) | Graphs | Cheapest interbank settlement routing across rails (PIX/TED/Boleto) by fee weight | ✅ |
-| 15 | [Union-Find](graphs/union-find) | Graphs | Fraud-ring cluster detection via incrementally unioned accounts/devices (fraud platform) | ✅ |
-| 16 | [Minimum Spanning Tree](graphs/minimum-spanning-tree) | Graphs | Cell-tower backhaul buildout cost minimization (telecom) | ✅ |
+All complete: classic/applied/benchmark implementation, its own README, and genuine 100%
+JaCoCo instruction + branch coverage (not padded to hit the number — several modules found and
+either fixed a real gap or simplified away a provably-unreachable defensive branch instead).
 
-All 16 structures are implemented — each one landed with its own classic/applied/benchmark
-implementation, README, and genuine 100% JaCoCo instruction + branch coverage (not padded to
-hit the number: several modules found and either fixed a real gap or simplified away a
-provably-unreachable defensive branch instead) before its row above flipped to ✅.
+| Structure | Category | Applied scenario |
+|-----------|----------|-------------------|
+| [Dynamic Array](linear/dynamic-array) | Linear | Insurance batch-ingestion buffer (insurer) |
+| [Linked List](linear/linked-list) | Linear | Insurance claim workflow stages (insurer) |
+| [Stack](linear/stack) | Linear | COBOL copybook bracket validator (legacy bank) |
+| [Queue / Deque](linear/queue-deque) | Linear | Support ticket triage w/ VIP fast-track (telecom) |
+| [Skip List](linear/skip-list) | Linear | Rate-limiter window index |
+| [Binary Search Tree](trees/binary-search-tree) | Trees | BACEN PIX limit-tier lookup |
+| [AVL Tree](trees/avl-tree) | Trees | Fraud-rule index (fraud platform) |
+| [Heap / Priority Queue](trees/heap) | Trees | SLA escalation queue (telecom) |
+| [Trie](trees/trie) | Trees | PIX-key prefix autocomplete (BACEN) |
+| [B-Tree](trees/b-tree) | Trees | RDBMS index simulation (legacy bank) |
+| [Hash Table](hashing/hash-table) | Hashing | PIX idempotency-key cache |
+| [Bloom Filter](hashing/bloom-filter) | Hashing | Fraud/blocklist pre-check (insurer/fraud platform) |
+| [Graph (BFS/DFS)](graphs/graph-bfs-dfs) | Graphs | AML network traversal (fraud/compliance team) |
+| [Dijkstra](graphs/dijkstra) | Graphs | Cheapest interbank settlement routing |
+| [Union-Find](graphs/union-find) | Graphs | Fraud-ring cluster detection (fraud platform) |
+| [Minimum Spanning Tree](graphs/minimum-spanning-tree) | Graphs | Cell-tower backhaul planning (telecom) |
 
 ## Structure
-
-```mermaid
-flowchart LR
-    Root(["data-structures-project"]) --> Linear["linear/"]
-    Root --> Trees["trees/"]
-    Root --> Hashing["hashing/"]
-    Root --> Graphs["graphs/"]
-    Linear --> DynamicArray["dynamic-array ✅"]
-    Linear --> LinkedList["linked-list ✅"]
-    Linear --> StackMod["stack ✅"]
-    Linear --> QueueDeque["queue-deque ✅"]
-    Linear --> SkipList["skip-list ✅"]
-    Trees --> BST["binary-search-tree ✅"]
-    Trees --> BTree["b-tree ✅"]
-    Trees --> AvlTree["avl-tree ✅"]
-    Trees --> HeapMod["heap ✅"]
-    Trees --> TrieMod["trie ✅"]
-    Hashing --> HashTable["hash-table ✅"]
-    Hashing --> BloomFilter["bloom-filter ✅"]
-    Graphs --> GraphBfsDfs["graph-bfs-dfs ✅"]
-    Graphs --> Dijkstra["dijkstra ✅"]
-    Graphs --> UnionFind["union-find ✅"]
-    Graphs --> Mst["minimum-spanning-tree ✅"]
-    Graphs --> GraphsMods["graph-bfs-dfs, dijkstra,\nunion-find, mst"]
-```
 
 Every structure module follows the same skeleton:
 
