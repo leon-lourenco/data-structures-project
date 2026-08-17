@@ -18,4 +18,5 @@ include(
     "trees:avl-tree",
     "trees:heap",
     "trees:trie",
+    "linear:matrix",
 )

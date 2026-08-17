@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/leon-lourenco/data-structures-project/actions/workflows/ci.yml/badge.svg)](https://github.com/leon-lourenco/data-structures-project/actions/workflows/ci.yml)
 
+**Sitio de documentación:** [leon-lourenco.github.io/data-structures-project](https://leon-lourenco.github.io/data-structures-project/) — cada estructura con diagrama, ambos ejemplos y el informe de cobertura, navegable en Español/English/Português.
+
 **Leer en:** [English](README.md) | [Português](README.pt-BR.md) | [Español](README.es.md)
 
 Un proyecto Java modular que demuestra las estructuras de datos clásicas enseñadas en un curso
@@ -29,6 +31,11 @@ ver el README de cada módulo para la tabla completa y cómo reproducirla.
 - **[Union-Find](graphs/union-find)** con compresión de caminos + unión por rango, frente a la
   versión sin esas optimizaciones, bajo la misma entrada de peor caso: **~3.046x** más rápido
   con 10.000 elementos.
+- **[Matrix](linear/matrix)**, sumando cada celda de la misma matriz cuadrada: recorrido
+  row-major (mismo orden de almacenamiento del array subyacente) vs. column-major (misma
+  cantidad de elementos, saltando `dimension` posiciones en cada paso) — la brecha crece de
+  ~1,8x en 10 mil celdas a **~15,7x** en 1 millón de celdas conforme el working set supera la
+  caché.
 
 ## Por qué classic + applied + benchmark
 
@@ -80,7 +87,7 @@ repositorio no finge que esa capa es invisible; se apoya en la metodología de J
 para ver la forma algorítmica (O(1) vs. O(log n) vs. O(n)) *a través* de la JVM, no alrededor de
 ella.
 
-## Las 16 estructuras
+## Las 17 estructuras
 
 Todas completas: implementación classic/applied/benchmark, README propio, y cobertura genuina
 del 100% de instrucciones + branches en JaCoCo (no inflada para alcanzar el número — varios
@@ -89,6 +96,7 @@ demostrablemente inalcanzable, en su lugar).
 
 | Estructura | Categoría | Escenario aplicado |
 |-----------|----------|-------------------|
+| [Matrix](linear/matrix) | Linear | Grilla de tarificación de primas de seguros (aseguradora) |
 | [Dynamic Array](linear/dynamic-array) | Linear | Buffer de ingesta por lotes de seguros (aseguradora) |
 | [Linked List](linear/linked-list) | Linear | Etapas del flujo de siniestros de seguros (aseguradora) |
 | [Stack](linear/stack) | Linear | Validador de corchetes de copybook COBOL legado (banco legado) |

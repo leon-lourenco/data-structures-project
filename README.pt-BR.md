@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/leon-lourenco/data-structures-project/actions/workflows/ci.yml/badge.svg)](https://github.com/leon-lourenco/data-structures-project/actions/workflows/ci.yml)
 
+**Site de documentação:** [leon-lourenco.github.io/data-structures-project](https://leon-lourenco.github.io/data-structures-project/) — cada estrutura com diagrama, os dois exemplos e o relatório de cobertura, navegável em Português/English/Español.
+
 **Leia em:** [English](README.md) | [Português](README.pt-BR.md) | [Español](README.es.md)
 
 Um projeto Java modular que demonstra as estruturas de dados clássicas ensinadas num curso
@@ -29,6 +31,10 @@ o README de cada módulo para a tabela completa e como reproduzi-la.
 - **[Union-Find](graphs/union-find)** com compressão de caminho + união por rank, contra a
   versão sem essas otimizações, sob a mesma entrada de pior caso: **~3.046x** mais rápido com
   10.000 elementos.
+- **[Matrix](linear/matrix)**, somando toda célula da mesma matriz quadrada: percurso row-major
+  (mesma ordem de armazenamento do array subjacente) vs. column-major (mesma quantidade de
+  elementos, pulando `dimension` posições a cada passo) — a diferença cresce de ~1,8x em 10 mil
+  células para **~15,7x** em 1 milhão de células conforme o working set ultrapassa o cache.
 
 ## Por que classic + applied + benchmark
 
@@ -79,7 +85,7 @@ metal sobre localidade de cache e layout de memória. Este repositório não fin
 invisível; ele se apoia na metodologia do JMH especificamente para enxergar o formato algorítmico
 (O(1) vs. O(log n) vs. O(n)) *através* da JVM, e não ao redor dela.
 
-## As 16 estruturas
+## As 17 estruturas
 
 Todas completas: implementação classic/applied/benchmark, README próprio, e cobertura genuína
 de 100% de instrução + branch no JaCoCo (não inflada pra bater o número — vários módulos
@@ -88,6 +94,7 @@ inatingível, em vez disso).
 
 | Estrutura | Categoria | Cenário aplicado |
 |-----------|----------|-------------------|
+| [Matrix](linear/matrix) | Linear | Grade de tarifação de prêmio de seguro (seguradora) |
 | [Dynamic Array](linear/dynamic-array) | Linear | Buffer de ingestão em lote de seguros (seguradora) |
 | [Linked List](linear/linked-list) | Linear | Estágios do fluxo de sinistros de seguros (seguradora) |
 | [Stack](linear/stack) | Linear | Validador de colchetes de copybook COBOL legado (banco legado) |

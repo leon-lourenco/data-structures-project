@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/leon-lourenco/data-structures-project/actions/workflows/ci.yml/badge.svg)](https://github.com/leon-lourenco/data-structures-project/actions/workflows/ci.yml)
 
+**Docs site:** [leon-lourenco.github.io/data-structures-project](https://leon-lourenco.github.io/data-structures-project/) — every structure with a diagram, both examples, and its coverage report, browsable in English/Português/Español.
+
 **Read this in:** [English](README.md) | [Português](README.pt-BR.md) | [Español](README.es.md)
 
 A modular Java project demonstrating the classic data structures taught in a university CS
@@ -28,6 +30,10 @@ own README for the full table and how to reproduce it.
   AVL tree stays at **7**.
 - **[Union-Find](graphs/union-find)** with path compression + union by rank, vs. without, under
   the identical worst-case input: **~3,046x** faster at 10,000 elements.
+- **[Matrix](linear/matrix)**, summing every cell of the same square matrix: row-major traversal
+  (matches how the backing array is actually laid out) vs. column-major (identical element
+  count, jumps `dimension` slots per step) — the gap widens from ~1.8x at 10K cells to **~15.7x**
+  at 1M cells as the working set outgrows cache.
 
 ## Why classic + applied + benchmark
 
@@ -74,7 +80,7 @@ instead. This repo doesn't pretend that layer is invisible; it leans on JMH's me
 specifically to see the algorithmic shape (O(1) vs. O(log n) vs. O(n)) *through* the JVM rather
 than around it.
 
-## The 16 structures
+## The 17 structures
 
 All complete: classic/applied/benchmark implementation, its own README, and genuine 100%
 JaCoCo instruction + branch coverage (not padded to hit the number — several modules found and
@@ -82,6 +88,7 @@ either fixed a real gap or simplified away a provably-unreachable defensive bran
 
 | Structure | Category | Applied scenario |
 |-----------|----------|-------------------|
+| [Matrix](linear/matrix) | Linear | Insurance premium-rating grid (insurer) |
 | [Dynamic Array](linear/dynamic-array) | Linear | Insurance batch-ingestion buffer (insurer) |
 | [Linked List](linear/linked-list) | Linear | Insurance claim workflow stages (insurer) |
 | [Stack](linear/stack) | Linear | COBOL copybook bracket validator (legacy bank) |
