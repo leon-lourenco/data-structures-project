@@ -1,0 +1,15 @@
+version: 2
+updates:
+  # Keeps JUnit/AssertJ/JaCoCo/JMH versions in gradle/libs.versions.toml current.
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # Keeps the actions this repo's own workflow pins (checkout, setup-java, upload-artifact)
+  # current. The reusable workflows living in ci-templates have their own Dependabot config
+  # over there - this only covers what's pinned directly in this repo's own workflow file.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"

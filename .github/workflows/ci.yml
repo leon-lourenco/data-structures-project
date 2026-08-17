@@ -7,48 +7,40 @@ on:
     branches: [master]
   workflow_dispatch:
 
+# A new push to the same branch cancels whatever CI run is already in flight for it - no point
+# burning minutes finishing a build for a commit that's already been superseded.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  security-events: write
+  pages: write
+  id-token: write
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out the repo
-        uses: actions/checkout@v4
+  # Compiles every module, runs every test, generates every module's JaCoCo report. JMH
+  # benchmarks are deliberately NOT run here: shared CI runners have noisy, inconsistent
+  # performance, so a benchmark number from this environment wouldn't mean anything - that's
+  # exactly why the numbers quoted in every module's README come from a real local run instead.
+  # `./gradlew jmh` stays a manual, on-demand command.
+  build-test:
+    uses: leon-lourenco/ci-templates/.github/workflows/gradle-build-test.yml@main
+    with:
+      java-version: '26'
 
-      - name: Set up JDK 26
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '26'
+  codeql:
+    uses: leon-lourenco/ci-templates/.github/workflows/codeql-java.yml@main
+    with:
+      java-version: '26'
 
-      # Handles both the dependency cache and Gradle's own build cache — faster than rolling
-      # a manual actions/cache step, and it's the action the Gradle team maintains themselves.
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
-
-      - name: Make gradlew executable
-        run: chmod +x gradlew
-
-      # Compiles every module, runs every test, and generates every module's JaCoCo report
-      # (all three are wired into the `check`/`build` task via the root build.gradle.kts).
-      # JMH benchmarks are deliberately NOT run here: shared CI runners have noisy, inconsistent
-      # performance, so a benchmark number from this environment wouldn't mean anything — that's
-      # exactly why the numbers quoted in every module's README come from a real local run
-      # instead. `./gradlew jmh` stays a manual, on-demand command.
-      - name: Build and test every module
-        run: ./gradlew build --console=plain
-
-      - name: Upload JaCoCo coverage reports
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: jacoco-reports
-          path: '**/build/reports/jacoco/test/html'
-          retention-days: 14
-
-      - name: Upload test reports
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-reports
-          path: '**/build/reports/tests/test'
-          retention-days: 14
+  # Publishes every module's coverage report to GitHub Pages - only on an actual push to
+  # master, never on a pull request (a PR from a fork couldn't deploy anyway, and there's no
+  # reason to redeploy Pages for a branch that isn't master yet).
+  pages:
+    needs: build-test
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    uses: leon-lourenco/ci-templates/.github/workflows/pages-jacoco.yml@main
+    with:
+      java-version: '26'
