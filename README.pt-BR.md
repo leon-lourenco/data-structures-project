@@ -12,10 +12,7 @@ do livro-texto num número medido e reproduzível. Tudo é JVM puro: sem demo ho
 serviços externos, `./gradlew build` e pronto.
 
 Este é um projeto de portfólio de [Leon Lourenço](https://github.com/leon-lourenco),
-engenheiro backend sênior, construído em público em lotes escopados. É irmão do
-[design-patterns-project](https://github.com/leon-lourenco/design-patterns-project) deste
-mesmo autor — mesmas convenções, mesmo autor, um fundamento diferente: estruturas de dados e
-seus trade-offs de complexidade, em vez dos padrões GoF.
+engenheiro backend sênior, construído em público em lotes escopados.
 
 ## Alguns números reais
 

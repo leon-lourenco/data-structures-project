@@ -12,10 +12,7 @@ Everything is plain JVM: no hosted demo, no external services, `./gradlew build`
 done.
 
 This is a portfolio project by [Leon Lourenço](https://github.com/leon-lourenco), a senior
-backend engineer, built in public in scoped batches. It's a sibling to this author's
-[design-patterns-project](https://github.com/leon-lourenco/design-patterns-project) — same
-conventions, same author, a different fundamental: data structures and their complexity
-trade-offs instead of GoF patterns.
+backend engineer, built in public in scoped batches.
 
 ## A few real numbers
 

@@ -12,10 +12,7 @@ complejidad (Big-O) del libro de texto en un número medido y reproducible. Todo
 sin demo alojada, sin servicios externos, `./gradlew build` y listo.
 
 Este es un proyecto de portafolio de [Leon Lourenço](https://github.com/leon-lourenco),
-ingeniero backend sénior, construido en público en lotes acotados. Es hermano del
-[design-patterns-project](https://github.com/leon-lourenco/design-patterns-project) del mismo
-autor — mismas convenciones, mismo autor, un fundamento distinto: estructuras de datos y sus
-trade-offs de complejidad, en lugar de los patrones GoF.
+ingeniero backend sénior, construido en público en lotes acotados.
 
 ## Algunos números reales
 
