@@ -1,5 +1,7 @@
 # The Grand Data Structures Project
 
+[![CI](https://github.com/leon-lourenco/data-structures-project/actions/workflows/ci.yml/badge.svg)](https://github.com/leon-lourenco/data-structures-project/actions/workflows/ci.yml)
+
 **Leer en:** [English](README.md) | [Português](README.pt-BR.md) | [Español](README.es.md)
 
 Un proyecto Java modular que demuestra las estructuras de datos clásicas enseñadas en un curso
