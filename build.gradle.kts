@@ -4,6 +4,8 @@ import org.gradle.api.tasks.testing.Test
 import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
 import org.gradle.testing.jacoco.tasks.JacocoReport
 
+version = "1.0.0-SNAPSHOT"
+
 subprojects {
     apply(plugin = "java")
     apply(plugin = "jacoco")
